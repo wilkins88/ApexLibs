@@ -7,11 +7,8 @@ jobs:
     steps:
       - checkout
       - sfdx/install
-      - run:
-          command: |
-            echo $DEVHUB_AUTHURL > authurl
-            sfdx force:auth:sfdxurl:store -f authurl
-          name: Authorize Devhub
+      - sfdx/auth:
+          defaultusername: admin@apexlibs.com.devhub
       - run:
           command: >-
             sfdx force:org:create -f ./config/project-scratch-def.json -a ${CIRCLE_PROJECT_REPONAME}-${CIRCLE_BRANCH}
