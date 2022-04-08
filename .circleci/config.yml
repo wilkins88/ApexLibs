@@ -8,11 +8,8 @@ jobs:
       - checkout
       - sfdx/install
       - run:
-          command: >-
-            echo ${DEVHUB_AUTHURL} > authurl
-          name: Creath Auth URL File
-      - run:
-          command: >-
+          command: |
+            echo $DEVHUB_AUTHURL > authurl
             sfdx force:auth:sfdxurl:store -f authurl
           name: Authorize Devhub
       - run:
@@ -37,7 +34,7 @@ jobs:
             sfdx force:org:delete --noprompt -u ${CIRCLE_PROJECT_REPONAME}-${CIRCLE_BRANCH}
           name: Delete scratch org
           when: always
-          
+
 workflows:
   validate:
     jobs:
