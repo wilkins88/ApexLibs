@@ -7,7 +7,7 @@ layout: default
 
 `SUPPRESSWARNINGS`
 
-Classic that can be used universally for black-box mocks
+Class mocker that can be used universally for black-box mocks
 
 
 **Author** Tom Wilkins
@@ -21,13 +21,13 @@ Classic that can be used universally for black-box mocks
 ## Methods
 ### `setMockedValue(String methodName, Object returnValue)`
 
-sets a mocked value to be returned for a particular method invocation
+Sets a mocked value to be returned for a particular method invocation
 
 #### Parameters
 |Param|Description|
 |---|---|
-|`methodName`|the name of the method to mock|
-|`returnValue`|the value to be returned|
+|`methodName`|Name of the method to mock|
+|`returnValue`|Value to be returned|
 
 #### Return
 
@@ -37,17 +37,17 @@ ClassMocker
 
 **Description**
 
-reference to calling object
+Reference to calling object
 
 ### `setMockedException(String methodName, Exception exceptionToThrow)`
 
-sets a mocked exception to be thrown for a particular method invocation
+Sets a mocked exception to be thrown for a particular method invocation
 
 #### Parameters
 |Param|Description|
 |---|---|
-|`methodName`|the name of the method to mock|
-|`exceptionToThrow`|the exception to be thrown|
+|`methodName`|Name of the method to mock|
+|`exceptionToThrow`|Exception to be thrown|
 
 #### Return
 
@@ -57,7 +57,7 @@ ClassMocker
 
 **Description**
 
-reference to calling object
+Reference to calling object
 
 ### `handleMethodCall(Object stubbedObject, String stubbedMethodName, Type returnType, List<Type> listOfParamTypes, List<String> listOfParamNames, List<Object> listOfArgs)`
 
@@ -67,6 +67,6 @@ reference to calling object
 |---|---|
 
 
-**See** &lt;a href=&quot;https://developer.salesforce.com/docs/atlas.en-us.apexref.meta/apexref/apex_interface_System_StubProvider.htm&quot;&gt;StubProvider Interface&lt;/a&gt;
+**See** [System.StubProvider](https://developer.salesforce.com/docs/atlas.en-us.apexref.meta/apexref/apex_interface_System_StubProvider.htm)
 
 ---

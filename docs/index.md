@@ -6,7 +6,11 @@ layout: default
 
 ### [ClassMocker](/Testing/ClassMocker.md)
 
-Classic that can be used universally for black-box mocks
+Class mocker that can be used universally for black-box mocks
+
+### [MockerFactory](/Testing/MockerFactory.md)
+
+Factory classes for creating various mocking utilities
 
 ### [Testing](/Testing/Testing.md)
 

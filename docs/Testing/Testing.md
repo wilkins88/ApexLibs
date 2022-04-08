@@ -18,3 +18,10 @@ Static accessor class used to group and provide convenient static access to test
 
 **Group** Testing
 
+## Properties
+
+### `mocks` → `MockerFactory`
+
+`TESTVISIBLE` 
+
+---

@@ -1,5 +1,5 @@
 /**
- * @description Classic that can be used universally for black-box mocks
+ * @description Class mocker that can be used universally for black-box mocks
  * @author Tom Wilkins
  * @date 2022-04-08
  * @group Testing
@@ -28,30 +28,30 @@ global inherited sharing class ClassMocker implements System.StubProvider {
     set;
   }
   /**
-   * @description sets a mocked value to be returned for a particular method invocation
-   * @param methodName the name of the method to mock
-   * @param returnValue the value to be returned
-   * @return reference to calling object
+   * @description Sets a mocked value to be returned for a particular method invocation
+   * @param methodName Name of the method to mock
+   * @param returnValue Value to be returned
+   * @return Reference to calling object
    */
   global ClassMocker setMockedValue(String methodName, Object returnValue) {
     this.mockedReturnValues.put(methodName, returnValue);
     return this;
   }
   /**
-   * @description sets a mocked exception to be thrown for a particular method invocation
-   * @param methodName the name of the method to mock
-   * @param exceptionToThrow the exception to be thrown
-   * @return reference to calling object
+   * @description Sets a mocked exception to be thrown for a particular method invocation
+   * @param methodName Name of the method to mock
+   * @param exceptionToThrow Exception to be thrown
+   * @return Reference to calling object
    */
   global ClassMocker setMockedException(
     String methodName,
     Exception exceptionToThrow
   ) {
-    this.mockedExceptions.put(methodName, e);
+    this.mockedExceptions.put(methodName, exceptionToThrow);
     return this;
   }
   /**
-   * @see <a href="https://developer.salesforce.com/docs/atlas.en-us.apexref.meta/apexref/apex_interface_System_StubProvider.htm">StubProvider Interface</a>
+   * @see [System.StubProvider](https://developer.salesforce.com/docs/atlas.en-us.apexref.meta/apexref/apex_interface_System_StubProvider.htm)
    */
   @SuppressWarnings('PMD.ExcessiveParameterList')
   global Object handleMethodCall(
