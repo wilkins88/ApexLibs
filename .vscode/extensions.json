@@ -4,6 +4,15 @@
     "redhat.vscode-xml",
     "dbaeumer.vscode-eslint",
     "esbenp.prettier-vscode",
-    "financialforce.lana"
+    "financialforce.lana",
+    "salesforce.salesforcedx-vscode-expanded",
+    "chuckjonas.apex-pmd",
+    "eamodio.gitlens",
+    "ms-vsliveshare.vsliveshare",
+    "eg2.vscode-npm-script",
+    "christian-kohler.npm-intellisense",
+    "esbenp.prettier-vscode",
+    "jasonnutter.search-node-modules",
+    "yzhang.markdown-all-in-one"
   ]
 }

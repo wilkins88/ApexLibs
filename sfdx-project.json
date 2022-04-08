@@ -5,8 +5,8 @@
       "default": true
     }
   ],
-  "name": "temp",
-  "namespace": "",
+  "name": "ApexLibs",
+  "namespace": "Libs",
   "sfdcLoginUrl": "https://login.salesforce.com",
   "sourceApiVersion": "54.0"
 }
