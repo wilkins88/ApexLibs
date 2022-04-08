@@ -6,9 +6,11 @@
   "scripts": {
     "prettier": "prettier --write \"**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,xml,yaml,yml}\"",
     "prettier:verify": "prettier --list-different \"**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,xml,yaml,yml}\"",
-    "postinstall": "husky install"
+    "postinstall": "husky install",
+    "docs:apex": "apexdocs-generate -s force-app -t docs -p global"
   },
   "devDependencies": {
+    "@cparra/apexdocs": "^2.1.4",
     "@prettier/plugin-xml": "^0.13.1",
     "husky": "^7.0.0",
     "prettier": "^2.3.2",
