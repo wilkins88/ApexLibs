@@ -91,4 +91,23 @@ ClassMocker
 
 ClassMocker with provided method mocks set
 
+### `createSObjectMocker(Schema.SObjectType sObjType)`
+
+Creates an SObject mocker for the provided sobject type
+
+#### Parameters
+|Param|Description|
+|---|---|
+|`sObjType`|the type of sobject the mocker should be able to mock|
+
+#### Return
+
+**Type**
+
+SObjectMocker
+
+**Description**
+
+SObjectMocker for provided sobject type
+
 ---

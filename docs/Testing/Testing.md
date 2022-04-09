@@ -22,6 +22,5 @@ Static accessor class used to group and provide convenient static access to test
 
 ### `mocks` → `MockerFactory`
 
-`TESTVISIBLE` 
 
 ---

@@ -7,7 +7,6 @@
 @IsTest
 @SuppressWarnings('PMD.AvoidGlobalModifier')
 global inherited sharing class ClassMocker implements System.StubProvider {
-  @TestVisible
   private Map<String, Exception> mockedExceptions {
     get {
       if (this.mockedExceptions == null) {
@@ -17,7 +16,6 @@ global inherited sharing class ClassMocker implements System.StubProvider {
     }
     set;
   }
-  @TestVisible
   private Map<String, Object> mockedReturnValues {
     get {
       if (this.mockedReturnValues == null) {

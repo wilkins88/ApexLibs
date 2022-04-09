@@ -9,7 +9,6 @@
 @IsTest
 @SuppressWarnings('PMD.AvoidGlobalModifier')
 global inherited sharing class Testing {
-  @TestVisible
   global static MockerFactory mocks {
     get {
       if (mocks == null) {

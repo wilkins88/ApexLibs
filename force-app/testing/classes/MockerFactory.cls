@@ -59,4 +59,12 @@ global inherited sharing class MockerFactory {
     }
     return mocker;
   }
+  /**
+   * @description Creates an SObject mocker for the provided sobject type
+   * @param sObjType the type of sobject the mocker should be able to mock
+   * @return SObjectMocker for provided sobject type
+   */
+  global SObjectMocker createSObjectMocker(Schema.SObjectType sObjType) {
+    return new SObjectMocker(sObjType);
+  }
 }
