@@ -19,7 +19,7 @@ Class mocker that can be used universally for black-box mocks
 **Group** Testing
 
 ## Methods
-### `setMockedValue(String methodName, Object returnValue)`
+### `setMethodMock(String methodName, IMethodMock methodMock)`
 
 Sets a mocked value to be returned for a particular method invocation
 
@@ -27,27 +27,7 @@ Sets a mocked value to be returned for a particular method invocation
 |Param|Description|
 |---|---|
 |`methodName`|Name of the method to mock|
-|`returnValue`|Value to be returned|
-
-#### Return
-
-**Type**
-
-ClassMocker
-
-**Description**
-
-Reference to calling object
-
-### `setMockedException(String methodName, Exception exceptionToThrow)`
-
-Sets a mocked exception to be thrown for a particular method invocation
-
-#### Parameters
-|Param|Description|
-|---|---|
-|`methodName`|Name of the method to mock|
-|`exceptionToThrow`|Exception to be thrown|
+|`methodMock`|Mock method|
 
 #### Return
 

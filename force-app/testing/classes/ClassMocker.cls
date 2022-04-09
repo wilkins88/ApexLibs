@@ -7,45 +7,23 @@
 @IsTest
 @SuppressWarnings('PMD.AvoidGlobalModifier')
 global inherited sharing class ClassMocker implements System.StubProvider {
-  private Map<String, Exception> mockedExceptions {
+  private Map<String, IMethodMock> methodMocks {
     get {
-      if (this.mockedExceptions == null) {
-        this.mockedExceptions = new Map<String, Exception>();
+      if (this.methodMocks == null) {
+        this.methodMocks = new Map<String, IMethodMock>();
       }
-      return this.mockedExceptions;
-    }
-    set;
-  }
-  private Map<String, Object> mockedReturnValues {
-    get {
-      if (this.mockedReturnValues == null) {
-        this.mockedReturnValues = new Map<String, Object>();
-      }
-      return this.mockedReturnValues;
+      return this.methodMocks;
     }
     set;
   }
   /**
    * @description Sets a mocked value to be returned for a particular method invocation
    * @param methodName Name of the method to mock
-   * @param returnValue Value to be returned
+   * @param methodMock Mock method
    * @return Reference to calling object
    */
-  global ClassMocker setMockedValue(String methodName, Object returnValue) {
-    this.mockedReturnValues.put(methodName, returnValue);
-    return this;
-  }
-  /**
-   * @description Sets a mocked exception to be thrown for a particular method invocation
-   * @param methodName Name of the method to mock
-   * @param exceptionToThrow Exception to be thrown
-   * @return Reference to calling object
-   */
-  global ClassMocker setMockedException(
-    String methodName,
-    Exception exceptionToThrow
-  ) {
-    this.mockedExceptions.put(methodName, exceptionToThrow);
+  global ClassMocker setMethodMock(String methodName, IMethodMock methodMock) {
+    this.methodMocks.put(methodName, methodMock);
     return this;
   }
   /**
@@ -60,10 +38,6 @@ global inherited sharing class ClassMocker implements System.StubProvider {
     List<String> listOfParamNames,
     List<Object> listOfArgs
   ) {
-    if (this.mockedExceptions.containsKey(stubbedMethodName)) {
-      throw this.mockedExceptions.get(stubbedMethodName);
-    } else {
-      return this.mockedReturnValues.get(stubbedMethodName);
-    }
+    return this.methodMocks.get(stubbedMethodName).execute();
   }
 }
