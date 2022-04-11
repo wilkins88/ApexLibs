@@ -5,7 +5,7 @@
  * This will never be extended by subscribers, but rather they will extend the TriggerHandler virtual class
  * @author Tom Wilkins
  * @date 2022-04-11
- * @group Automation
+ * @group Triggers
  */
 public interface ITriggerHandler {
   /**

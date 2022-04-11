@@ -35,3 +35,16 @@ Static accessor class used to group and provide convenient static access to test
 ### [ThrowExceptionMethodMock](/Testing/ThrowExceptionMethodMock.md)
 
 Simple method mock that throws whatever excpetion is injected into the constructor
+## Triggers
+
+### [TriggerHandler](/Triggers/TriggerHandler.md)
+
+Virtual class of which all trigger handlers should implement. Provides base behavior (do nothing) so handlers should only focus on implementing the contexts that matter
+
+### [TriggerSettings](/Triggers/TriggerSettings.md)
+
+Settings class that is used to provide an API for tuning the behavior of the Trigger framework
+
+### [Triggers](/Triggers/Triggers.md)
+
+Static accessor for Trigger functionality. Provides convenient access while supporting good design and mockability for unit tests
