@@ -15,6 +15,23 @@ global inherited sharing class Triggers {
       }
       return settings;
     }
-    set;
+    private set;
+  }
+  @TestVisible
+  global static TriggerContext ctx {
+    get {
+      if (ctx == null) {
+        ctx = new TriggerContext();
+      }
+      return ctx;
+    }
+    private set;
+  }
+  /**
+   * @description setter for the trigger context from within the package
+   * @param ctx the Trigger Context to be set
+   */
+  public static void setContext(TriggerContext ctx) {
+    ctx = ctx;
   }
 }
