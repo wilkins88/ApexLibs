@@ -9,6 +9,15 @@
 @IsTest
 @SuppressWarnings('PMD.AvoidGlobalModifier')
 global inherited sharing class Testing {
+  global static DataFactory data {
+    get {
+      if (data == null) {
+        data = new DataFactory();
+      }
+      return data;
+    }
+    private set;
+  }
   global static MockerFactory mocks {
     get {
       if (mocks == null) {

@@ -7,15 +7,6 @@
 @IsTest
 @SuppressWarnings('PMD.AvoidGlobalModifier')
 global inherited sharing class SObjectMocker {
-  private DataFactory factory {
-    get {
-      if (this.factory == null) {
-        this.factory = new DataFactory();
-      }
-      return this.factory;
-    }
-    set;
-  }
   private Integer currentIdIndex = 1;
   private Schema.SObjectType sObjType;
   /**
@@ -40,7 +31,7 @@ global inherited sharing class SObjectMocker {
    * @return Mocked SObject without an id
    */
   global SObject generateMockSObject() {
-    return this.factory.createSObjects(this.sObjType, 1)[0];
+    return Testing.data.createSObjects(this.sObjType, 1)[0];
   }
   /**
    * @description generates a mock SObject
@@ -48,7 +39,7 @@ global inherited sharing class SObjectMocker {
    * @return Mocked SObject
    */
   global SObject generateMockSObject(Boolean shouldHaveId) {
-    SObject mockedObject = this.factory.createSObjects(this.sObjType, 1)[0];
+    SObject mockedObject = Testing.data.createSObjects(this.sObjType, 1)[0];
     if (shouldHaveId) {
       mockedObject.Id = this.generateMockId();
     }
@@ -62,7 +53,7 @@ global inherited sharing class SObjectMocker {
   global SObject generateMockSObject(
     Map<Schema.SObjectField, Object> fieldValues
   ) {
-    return this.factory.createSObjects(this.sObjType, fieldValues, 1)[0];
+    return Testing.data.createSObjects(this.sObjType, fieldValues, 1)[0];
   }
   /**
    * @description generates a mock SObject
@@ -74,7 +65,7 @@ global inherited sharing class SObjectMocker {
     Boolean shouldHaveId,
     Map<Schema.SObjectField, Object> fieldValues
   ) {
-    SObject mockedObject = this.factory.createSObjects(
+    SObject mockedObject = Testing.data.createSObjects(
       this.sObjType,
       fieldValues,
       1
@@ -90,7 +81,7 @@ global inherited sharing class SObjectMocker {
    * @return Mocked SObject without an id
    */
   global List<SObject> generateMockSObjects(Integer numOfRecords) {
-    return this.factory.createSObjects(this.sObjType, numOfRecords);
+    return Testing.data.createSObjects(this.sObjType, numOfRecords);
   }
   /**
    * @description generates a list of mock SObjects
@@ -102,7 +93,7 @@ global inherited sharing class SObjectMocker {
     Boolean shouldHaveId,
     Integer numOfRecords
   ) {
-    List<SObject> mockedObjects = this.factory.createSObjects(
+    List<SObject> mockedObjects = Testing.data.createSObjects(
       this.sObjType,
       numOfRecords
     );
@@ -123,7 +114,7 @@ global inherited sharing class SObjectMocker {
     Map<Schema.SObjectField, Object> fieldValues,
     Integer numOfRecords
   ) {
-    return this.factory.createSObjects(
+    return Testing.data.createSObjects(
       this.sObjType,
       fieldValues,
       numOfRecords
@@ -141,7 +132,7 @@ global inherited sharing class SObjectMocker {
     Map<Schema.SObjectField, Object> fieldValues,
     Integer numOfRecords
   ) {
-    List<SObject> mockedObjects = this.factory.createSObjects(
+    List<SObject> mockedObjects = Testing.data.createSObjects(
       this.sObjType,
       fieldValues,
       numOfRecords
