@@ -5,7 +5,7 @@ layout: default
 
 `ISTEST`
 
-`OTHER`
+`SUPPRESSWARNINGS`
 
 Simple method mock that throws whatever excpetion is injected into the constructor
 

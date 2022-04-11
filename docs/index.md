@@ -10,7 +10,7 @@ Class mocker that can be used universally for black-box mocks
 
 ### [DataFactory](/Testing/DataFactory.md)
 
-WIP
+Flexible data factory for generating data for a given SObject Type
 
 ### [IMethodMock](/Testing/IMethodMock.md)
 

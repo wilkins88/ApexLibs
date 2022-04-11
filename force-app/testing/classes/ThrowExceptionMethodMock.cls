@@ -5,7 +5,7 @@
  * @group Testing
  */
 @IsTest
-@SuppressWarning('AvoidGlobalModifier')
+@SuppressWarnings('PMD.AvoidGlobalModifier')
 global inherited sharing class ThrowExceptionMethodMock implements IMethodMock {
   private Exception exceptionToThrow;
   /**
