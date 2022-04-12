@@ -58,7 +58,7 @@ global inherited sharing class TriggerDispatcher {
    * @param e Exception caught from trigger handlers
    */
   @TestVisible
-  private void handleError(Execption e) {
+  private void handleError(Exception e) {
     if (Triggers.ctx.isBeforeDelete() || Triggers.ctx.isAfterDelete()) {
       for (SObject record : Triggers.ctx.getTriggerOld()) {
         Triggers.ctx.addError(record, e.getMessage());
