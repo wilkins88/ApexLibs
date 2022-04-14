@@ -27,11 +27,14 @@ global inherited sharing class Triggers {
     }
     private set;
   }
-  /**
-   * @description setter for the trigger context from within the package
-   * @param ctx the Trigger Context to be set
-   */
-  public static void setContext(TriggerContext ctx) {
-    ctx = ctx;
+  @TestVisible
+  global static TriggerDispatcherFactory factory {
+    get {
+      if (factory == null) {
+        factory = new TriggerDispatcherFactory();
+      }
+      return factory;
+    }
+    private set;
   }
 }
