@@ -16,6 +16,7 @@ public inherited sharing class TriggerConfigSelector {
           SELECT ClassName__c
           FROM TriggerHandlerSettings__r
           WHERE IsActive__c = TRUE
+          ORDER BY Priority__c ASC NULLS LAST
         )
       FROM SObjectTriggerSetting__mdt
       WHERE SObjectType__c = :String.valueOf(sObjType) AND IsActive__c = TRUE
