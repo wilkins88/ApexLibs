@@ -2,6 +2,43 @@
 layout: default
 ---
 # Classes
+## Triggers
+
+### [AddErrorException](/Triggers/AddErrorException.md)
+
+Exception used in tests to identify when an addError call happens in mocks
+
+### [AddErrorMethodMock](/Triggers/AddErrorMethodMock.md)
+
+Method mock for the addError method on the TriggerContext
+
+### [TriggerContext](/Triggers/TriggerContext.md)
+
+Wrapper around the System Trigger libs to provide opportunities for QoL and decoupling from sys libs for mocking, DI, etc.
+
+### [TriggerDispatcher](/Triggers/TriggerDispatcher.md)
+
+Dispatcher that handles general routing of trigger logic for all contexts and all SObjects
+
+### [TriggerDispatcherFactory](/Triggers/TriggerDispatcherFactory.md)
+
+Factory for creating trigger dispatcher and injecting handlers based on configuring
+
+### [TriggerHandler](/Triggers/TriggerHandler.md)
+
+Virtual class of which all trigger handlers should implement. Provides base behavior (do nothing) so handlers should only focus on implementing the contexts that matter
+
+### [TriggerMocker](/Triggers/TriggerMocker.md)
+
+Mocker for trigger functionality
+
+### [TriggerSettings](/Triggers/TriggerSettings.md)
+
+Settings class that is used to provide an API for tuning the behavior of the Trigger framework
+
+### [Triggers](/Triggers/Triggers.md)
+
+Static accessor for Trigger functionality. Provides convenient access while supporting good design and mockability for unit tests
 ## Testing
 
 ### [ClassMocker](/Testing/ClassMocker.md)
@@ -35,16 +72,3 @@ Static accessor class used to group and provide convenient static access to test
 ### [ThrowExceptionMethodMock](/Testing/ThrowExceptionMethodMock.md)
 
 Simple method mock that throws whatever excpetion is injected into the constructor
-## Triggers
-
-### [TriggerHandler](/Triggers/TriggerHandler.md)
-
-Virtual class of which all trigger handlers should implement. Provides base behavior (do nothing) so handlers should only focus on implementing the contexts that matter
-
-### [TriggerSettings](/Triggers/TriggerSettings.md)
-
-Settings class that is used to provide an API for tuning the behavior of the Trigger framework
-
-### [Triggers](/Triggers/Triggers.md)
-
-Static accessor for Trigger functionality. Provides convenient access while supporting good design and mockability for unit tests

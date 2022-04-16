@@ -16,14 +16,25 @@ global inherited sharing class ClassMocker implements System.StubProvider {
     }
     set;
   }
+  private IMethodMock defaultMethodMock;
   /**
-   * @description Sets a mocked value to be returned for a particular method invocation
+   * @description Sets a mocked implementation to for a particular method
    * @param methodName Name of the method to mock
    * @param methodMock Mock method
    * @return Reference to calling object
    */
   global ClassMocker setMethodMock(String methodName, IMethodMock methodMock) {
     this.methodMocks.put(methodName, methodMock);
+    return this;
+  }
+  /**
+   * @description Sets a default method that will run if a mocked method has not been set
+   * This is mostly useful as a convenience feature if you want a bundle of methods to behave the same way
+   * @param methodMock Mock method to use as a default
+   * @return Reference to calling object
+   */
+  global ClassMocker setDefaultMethodMock(IMethodMock methodMock) {
+    this.defaultMethodMock = methodMock;
     return this;
   }
   /**
@@ -38,6 +49,6 @@ global inherited sharing class ClassMocker implements System.StubProvider {
     List<String> listOfParamNames,
     List<Object> listOfArgs
   ) {
-    return this.methodMocks.get(stubbedMethodName).execute();
+    return this.methodMocks.get(stubbedMethodName).execute(listOfArgs);
   }
 }

@@ -30,9 +30,13 @@ Constructor
 
 ---
 ## Methods
-### `execute()`
+### `execute(List<Object> args)`
 
 returns the value injected into the constructor
+
+#### Parameters
+|Param|Description|
+|---|---|
 
 #### Return
 

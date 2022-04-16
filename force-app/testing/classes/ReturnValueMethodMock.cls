@@ -20,7 +20,7 @@ global inherited sharing class ReturnValueMethodMock implements IMethodMock {
    * @see [IMethodMock](/docs/Testing/IMethodMock.md)
    * @return Mocked object injected into constructor
    */
-  global Object execute() {
+  global Object execute(List<Object> args) {
     return this.returnValue;
   }
 }

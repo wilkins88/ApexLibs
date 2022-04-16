@@ -19,7 +19,7 @@ global inherited sharing class ThrowExceptionMethodMock implements IMethodMock {
    * @description throws the exception injected into the constructor
    * @see [IMethodMock](/docs/Testing/IMethodMock.md)
    */
-  global Object execute() {
+  global Object execute(List<Object> args) {
     throw this.exceptionToThrow;
   }
 }

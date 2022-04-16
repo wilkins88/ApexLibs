@@ -18,6 +18,18 @@ Static accessor for Trigger functionality. Provides convenient access while supp
 
 ## Properties
 
+### `ctx` → `TriggerContext`
+
+`TESTVISIBLE` 
+
+### `factory` → `TriggerDispatcherFactory`
+
+`TESTVISIBLE` 
+
+### `mocker` → `TriggerMocker`
+
+`TESTVISIBLE` 
+
 ### `settings` → `TriggerSettings`
 
 `TESTVISIBLE` 

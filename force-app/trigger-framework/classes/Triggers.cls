@@ -37,4 +37,14 @@ global inherited sharing class Triggers {
     }
     private set;
   }
+  @TestVisible
+  global static TriggerMocker mocker {
+    get {
+      if (mocker == null) {
+        mocker = new TriggerMocker();
+      }
+      return mocker;
+    }
+    private set;
+  }
 }

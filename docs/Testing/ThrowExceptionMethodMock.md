@@ -30,9 +30,13 @@ Constructor
 
 ---
 ## Methods
-### `execute()`
+### `execute(List<Object> args)`
 
 throws the exception injected into the constructor
+
+#### Parameters
+|Param|Description|
+|---|---|
 
 
 **See** [IMethodMock](/docs/Testing/IMethodMock.md)
