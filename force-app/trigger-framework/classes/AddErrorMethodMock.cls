@@ -12,6 +12,6 @@ global inherited sharing class AddErrorMethodMock implements IMethodMock {
    * @see [IMethodMock](/docs/Testing/IMethodMock.md)
    */
   global Object execute(List<Object> args) {
-    throw new AddErrorException((String) args[0]);
+    throw new AddErrorException((String) args[1]);
   }
 }

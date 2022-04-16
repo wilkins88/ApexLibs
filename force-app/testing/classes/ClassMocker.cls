@@ -49,6 +49,12 @@ global inherited sharing class ClassMocker implements System.StubProvider {
     List<String> listOfParamNames,
     List<Object> listOfArgs
   ) {
-    return this.methodMocks.get(stubbedMethodName).execute(listOfArgs);
+    if (this.methodMocks.containsKey(stubbedMethodName)) {
+      return this.methodMocks.get(stubbedMethodName).execute(listOfArgs);
+    } else if (this.defaultMethodMock != null) {
+      return this.defaultMethodMock.execute(listOfArgs);
+    } else {
+      return null;
+    }
   }
 }
