@@ -8,24 +8,20 @@
 @SuppressWarnings('PMD.AvoidGlobalModifier')
 global inherited sharing class MockerFactory {
   /**
-   * @description Returns a default mocker with no mocked features. Clients should explicitly set
-   * the mocked values upon capturing the returned class mocker
-   * @return Default ClassMocker
-   */
-  global ClassMocker createClassMocker() {
-    return new ClassMocker();
-  }
-  /**
    * @description Creates a ClassMocker and sets the methods provided to return the values provided
+   * @param classType the type of class to mock
    * @param methodMocks Map of method name strings to method mocks
-   * @return ClassMocker with provided method mocks set
+   * @return Mocked Object
    */
-  global ClassMocker createClassMocker(Map<String, IMethodMock> methodMocks) {
-    ClassMocker mocker = new ClassMocker();
+  global Object createClassMocker(
+    System.Type classType,
+    Map<String, IMethodMock> methodMocks
+  ) {
+    ClassMocker mocker = new ClassMocker(classType);
     for (String methodName : methodMocks.keySet()) {
       mocker.setMethodMock(methodName, methodMocks.get(methodName));
     }
-    return mocker;
+    return mocker.construct();
   }
   /**
    * @description Creates an SObject mocker for the provided sobject type
