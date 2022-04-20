@@ -7,6 +7,16 @@
 @IsTest
 @SuppressWarnings('PMD.AvoidGlobalModifier')
 global inherited sharing class SObjectMocker {
+  private Map<String, List<SObject>> relatedLists {
+    get {
+      if (this.relatedLists == null) {
+        this.relatedLists = new Map<String, List<SObject>>();
+      }
+      return this.relatedLists;
+    }
+    set;
+  }
+  private Boolean generateIds = false;
   private Integer currentIdIndex = 1;
   private Schema.SObjectType sObjType;
   /**
@@ -15,6 +25,28 @@ global inherited sharing class SObjectMocker {
    */
   public SObjectMocker(Schema.SObjectType sObjType) {
     this.sObjType = sObjType;
+  }
+  /**
+   * @description Sets a related list that will be created with each generated SObject
+   * @param relatedListName API name for the related list
+   * @param relatedListRecords Records to be captured as a part of the related list
+   * @return Reference to calling object
+   */
+  global SObjectMocker setRelatedList(
+    String relatedListName,
+    List<SObject> relatedListRecords
+  ) {
+    this.relatedLists.put(relatedListName, relatedListRecords);
+    return this;
+  }
+  /**
+   * @description Sets whether or not the mocker should generate ids for records
+   * @param generateIds Whether or not the mocker should generated ids
+   * @return Reference to calling object
+   */
+  global SObjectmocker shouldGenerateIds(Boolean generateIds) {
+    this.generateIds = generateIds;
+    return this;
   }
   /**
    * @description Generates a mock id for the provided SObject Type
@@ -31,19 +63,9 @@ global inherited sharing class SObjectMocker {
    * @return Mocked SObject without an id
    */
   global SObject generateMockSObject() {
-    return Testing.data.createSObjects(this.sObjType, 1)[0];
-  }
-  /**
-   * @description generates a mock SObject
-   * @param shouldHaveId Whether or not the mocked SObject should also have a mocked id
-   * @return Mocked SObject
-   */
-  global SObject generateMockSObject(Boolean shouldHaveId) {
-    SObject mockedObject = Testing.data.createSObjects(this.sObjType, 1)[0];
-    if (shouldHaveId) {
-      mockedObject.Id = this.generateMockId();
-    }
-    return mockedObject;
+    return this.augmentSObject(
+      Testing.data.createSObjects(this.sObjType, 1)[0]
+    );
   }
   /**
    * @description generates a mock SObject
@@ -53,27 +75,9 @@ global inherited sharing class SObjectMocker {
   global SObject generateMockSObject(
     Map<Schema.SObjectField, Object> fieldValues
   ) {
-    return Testing.data.createSObjects(this.sObjType, fieldValues, 1)[0];
-  }
-  /**
-   * @description generates a mock SObject
-   * @param shouldHaveId Whether or not the mocked SObject should also have a mocked id
-   * @param fieldValues Field Values to set in the mocked object
-   * @return Mocked SObject
-   */
-  global SObject generateMockSObject(
-    Boolean shouldHaveId,
-    Map<Schema.SObjectField, Object> fieldValues
-  ) {
-    SObject mockedObject = Testing.data.createSObjects(
-      this.sObjType,
-      fieldValues,
-      1
-    )[0];
-    if (shouldHaveId) {
-      mockedObject.Id = this.generateMockId();
-    }
-    return mockedObject;
+    return this.augmentSObject(
+      Testing.data.createSObjects(this.sObjType, fieldValues, 1)[0]
+    );
   }
   /**
    * @description generates a list of mock SObjects
@@ -81,28 +85,13 @@ global inherited sharing class SObjectMocker {
    * @return Mocked SObject without an id
    */
   global List<SObject> generateMockSObjects(Integer numOfRecords) {
-    return Testing.data.createSObjects(this.sObjType, numOfRecords);
-  }
-  /**
-   * @description generates a list of mock SObjects
-   * @param shouldHaveId Whether or not the mocked SObject should also have a mocked id
-   * @param numOfRecords Number of mocked SObjects to generate
-   * @return Mocked SObject
-   */
-  global List<SObject> generateMockSObjects(
-    Boolean shouldHaveId,
-    Integer numOfRecords
-  ) {
-    List<SObject> mockedObjects = Testing.data.createSObjects(
-      this.sObjType,
-      numOfRecords
-    );
-    if (shouldHaveId) {
-      for (SObject mockedObject : mockedObjects) {
-        mockedObject.Id = this.generateMockId();
-      }
+    List<SObject> records = new List<SObject>();
+    for (
+      SObject record : Testing.data.createSObjects(this.sObjType, numOfRecords)
+    ) {
+      records.add(this.augmentSObject(record));
     }
-    return mockedObjects;
+    return records;
   }
   /**
    * @description generates a mock SObject
@@ -114,34 +103,42 @@ global inherited sharing class SObjectMocker {
     Map<Schema.SObjectField, Object> fieldValues,
     Integer numOfRecords
   ) {
-    return Testing.data.createSObjects(
-      this.sObjType,
-      fieldValues,
-      numOfRecords
-    );
+    List<SObject> records = new List<SObject>();
+    for (
+      SObject record : Testing.data.createSObjects(
+        this.sObjType,
+        fieldValues,
+        numOfRecords
+      )
+    ) {
+      records.add(this.augmentSObject(record));
+    }
+    return records;
   }
   /**
-   * @description generates a mock SObject
-   * @param shouldHaveId Whether or not the mocked SObject should also have a mocked id
-   * @param fieldValues Field Values to set in the mocked object
-   * @param numOfRecords Number of mocked SObjects to generate
-   * @return Mocked SObject
+   * @description Augements an object based on internal state of the builder
+   * @param record Record to augment
+   * @return Augmented record
    */
-  global List<SObject> generateMockSObjects(
-    Boolean shouldHaveId,
-    Map<Schema.SObjectField, Object> fieldValues,
-    Integer numOfRecords
-  ) {
-    List<SObject> mockedObjects = Testing.data.createSObjects(
-      this.sObjType,
-      fieldValues,
-      numOfRecords
-    );
-    if (shouldHaveId) {
-      for (SObject mockedObject : mockedObjects) {
-        mockedObject.Id = this.generateMockId();
-      }
+  @TestVisible
+  private SObject augmentSObject(SObject record) {
+    if (this.generateIds) {
+      record.Id = this.generateMockId();
     }
-    return mockedObjects;
+    if (!this.relatedLists.isEmpty()) {
+      Map<String, Object> objMap = record.getPopulatedFieldsAsMap();
+      for (String relatedList : this.relatedLists.keySet()) {
+        objMap.put(
+          relatedList,
+          new Map<String, Object>{
+            'totalSize' => this.relatedLists.get(relatedList).size(),
+            'done' => true,
+            'records' => this.relatedLists.get(relatedList)
+          }
+        );
+      }
+      return (SObject) JSON.deserialize(JSON.serialize(objMap), SObject.class);
+    }
+    return record;
   }
 }

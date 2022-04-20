@@ -13,7 +13,7 @@ global inherited sharing class MockerFactory {
    * @param methodMocks Map of method name strings to method mocks
    * @return Mocked Object
    */
-  global Object createClassMocker(
+  global Object mockClass(
     System.Type classType,
     Map<String, IMethodMock> methodMocks
   ) {
