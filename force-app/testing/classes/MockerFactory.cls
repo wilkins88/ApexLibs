@@ -13,7 +13,7 @@ global inherited sharing class MockerFactory {
    * @param methodMocks Map of method name strings to method mocks
    * @return Mocked Object
    */
-  global Object mockClass(
+  global ClassMocker mockClass(
     System.Type classType,
     Map<String, IMethodMock> methodMocks
   ) {
@@ -21,7 +21,7 @@ global inherited sharing class MockerFactory {
     for (String methodName : methodMocks.keySet()) {
       mocker.setMethodMock(methodName, methodMocks.get(methodName));
     }
-    return mocker.construct();
+    return mocker;
   }
   /**
    * @description Creates an SObject mocker for the provided sobject type

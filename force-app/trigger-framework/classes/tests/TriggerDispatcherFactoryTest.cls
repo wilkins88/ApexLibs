@@ -24,13 +24,14 @@ private inherited sharing class TriggerDispatcherFactoryTest {
     SObjectTriggerSetting__mdt config = (SObjectTriggerSetting__mdt) triggerSettingMocker.generateMockSObject();
     TriggerDispatcherFactory factory = new TriggerDispatcherFactory();
     factory.config = (TriggerConfigSelector) Testing.mocks.mockClass(
-      TriggerConfigSelector.class,
-      new Map<String, IMethodMock>{
-        'getTriggerSettings' => new ReturnValueMethodMock(
-          new List<SObjectTriggerSetting__mdt>{ config }
-        )
-      }
-    );
+        TriggerConfigSelector.class,
+        new Map<String, IMethodMock>{
+          'getTriggerSettings' => new ReturnValueMethodMock(
+            new List<SObjectTriggerSetting__mdt>{ config }
+          )
+        }
+      )
+      .construct();
     System.Test.startTest();
     TriggerDispatcher dispatcher = factory.create(Account.getSObjectType());
     System.Test.stopTest();

@@ -33,7 +33,7 @@ Creates a ClassMocker and sets the methods provided to return the values provide
 
 **Type**
 
-Object
+ClassMocker
 
 **Description**
 
