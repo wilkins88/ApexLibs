@@ -39,6 +39,7 @@ global inherited sharing class TriggerDispatcherFactory {
     if (cachedHandlers.containsKey(sObjString)) {
       handlers = cachedHandlers.get(sObjString);
     } else {
+      handlers = new List<ITriggerHandler>();
       for (
         SObjectTriggerSetting__mdt setting : this.config.getTriggerSettings(
           sObjType

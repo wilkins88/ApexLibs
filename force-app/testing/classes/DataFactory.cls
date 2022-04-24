@@ -56,6 +56,7 @@ global with sharing class DataFactory {
    * @param sObjType Type of SObject to generate a base record of
    * @return Basic SObject with required fields defaulted
    */
+  @TestVisible
   private SObject getBaseSObject(Schema.SObjectType sObjType) {
     SObject record = sObjType.newSObject();
     for (
@@ -76,6 +77,7 @@ global with sharing class DataFactory {
    * @param fieldDescribe Field Describe to use to determine default value
    * @return Value to be stored in the field, null if field type not supported
    */
+  @TestVisible
   private Object getDefaultValue(Schema.DescribeFieldResult fieldDescribe) {
     Schema.DisplayType fieldType = fieldDescribe.getType();
     switch on (fieldType) {
@@ -133,6 +135,7 @@ global with sharing class DataFactory {
    * @param fieldDescribe field describe to extract picklist values from
    * @return String picklist value, null if no values found
    */
+  @TestVisible
   private String getDefaultPicklistValue(
     Schema.DescribeFieldResult fieldDescribe
   ) {
@@ -149,6 +152,7 @@ global with sharing class DataFactory {
   /**
    * @description Applies the provided field values to the provided SObject
    */
+  @TestVisible
   private SObject applyFieldValues(
     SObject obj,
     Map<Schema.SObjectField, Object> fieldValues

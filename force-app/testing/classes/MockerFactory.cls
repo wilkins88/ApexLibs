@@ -26,9 +26,13 @@ global inherited sharing class MockerFactory {
   /**
    * @description Creates an SObject mocker for the provided sobject type
    * @param sObjType the type of sobject the mocker should be able to mock
+   * @param sObjClassType Apex type of the SObject class
    * @return SObjectMocker for provided sobject type
    */
-  global SObjectMocker createSObjectMocker(Schema.SObjectType sObjType) {
-    return new SObjectMocker(sObjType);
+  global SObjectMocker createSObjectMocker(
+    Schema.SObjectType sObjType,
+    Type sObjClassType
+  ) {
+    return new SObjectMocker(sObjType, sObjClassType);
   }
 }

@@ -19,12 +19,15 @@ global inherited sharing class SObjectMocker {
   private Boolean generateIds = false;
   private Integer currentIdIndex = 1;
   private Schema.SObjectType sObjType;
+  private Type sObjClassType;
   /**
    * @description constructor
    * @param sObjType the type of sobject this mocker can mock for
+   * @param sObjClassType Apex Type of the SObject apex class for deserialization
    */
-  public SObjectMocker(Schema.SObjectType sObjType) {
+  public SObjectMocker(Schema.SObjectType sObjType, Type sObjClassType) {
     this.sObjType = sObjType;
+    this.sObjClassType = sObjClassType;
   }
   /**
    * @description Sets a related list that will be created with each generated SObject
@@ -126,7 +129,7 @@ global inherited sharing class SObjectMocker {
       record.Id = this.generateMockId();
     }
     if (!this.relatedLists.isEmpty()) {
-      Map<String, Object> objMap = record.getPopulatedFieldsAsMap();
+      Map<String, Object> objMap = record.getPopulatedFieldsAsMap().clone();
       for (String relatedList : this.relatedLists.keySet()) {
         objMap.put(
           relatedList,
@@ -137,7 +140,10 @@ global inherited sharing class SObjectMocker {
           }
         );
       }
-      return (SObject) JSON.deserialize(JSON.serialize(objMap), SObject.class);
+      return (SObjectTriggerSetting__mdt) JSON.deserialize(
+        JSON.serialize(objMap),
+        this.sObjClassType
+      );
     }
     return record;
   }
