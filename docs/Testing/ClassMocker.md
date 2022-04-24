@@ -19,44 +19,19 @@ Class mocker that can be used universally for black-box mocks
 **Group** Testing
 
 ## Methods
-### `setMethodMock(String methodName, IMethodMock methodMock)`
+### `construct()`
 
-Sets a mocked implementation to for a particular method
-
-#### Parameters
-|Param|Description|
-|---|---|
-|`methodName`|Name of the method to mock|
-|`methodMock`|Mock method|
+builds the mock and returns it to be set for cliens
 
 #### Return
 
 **Type**
 
-ClassMocker
+Object
 
 **Description**
 
-Reference to calling object
-
-### `setDefaultMethodMock(IMethodMock methodMock)`
-
-Sets a default method that will run if a mocked method has not been set This is mostly useful as a convenience feature if you want a bundle of methods to behave the same way
-
-#### Parameters
-|Param|Description|
-|---|---|
-|`methodMock`|Mock method to use as a default|
-
-#### Return
-
-**Type**
-
-ClassMocker
-
-**Description**
-
-Reference to calling object
+Mocked Object
 
 ### `handleMethodCall(Object stubbedObject, String stubbedMethodName, Type returnType, List<Type> listOfParamTypes, List<String> listOfParamNames, List<Object> listOfArgs)`
 

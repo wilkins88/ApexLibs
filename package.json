@@ -7,7 +7,8 @@
     "prettier": "prettier --write \"**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,xml,yaml,yml}\"",
     "prettier:verify": "prettier --list-different \"**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,xml,yaml,yml}\"",
     "postinstall": "husky install",
-    "docs:apex": "apexdocs-generate -s force-app -t docs -p global"
+    "docs:apex": "apexdocs-generate -s force-app -t docs -p global",
+    "package:version": "sfdx force:package:version:create -p ApexLibs -x"
   },
   "devDependencies": {
     "@cparra/apexdocs": "^2.1.4",

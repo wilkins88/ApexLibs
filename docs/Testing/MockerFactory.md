@@ -19,40 +19,27 @@ Factory classes for creating various mocking utilities
 **Group** Testing
 
 ## Methods
-### `createClassMocker()`
-
-Returns a default mocker with no mocked features. Clients should explicitly set the mocked values upon capturing the returned class mocker
-
-#### Return
-
-**Type**
-
-ClassMocker
-
-**Description**
-
-Default ClassMocker
-
-### `createClassMocker(Map<String,IMethodMock> methodMocks)`
+### `mockClass(System.Type classType, Map<String,IMethodMock> methodMocks)`
 
 Creates a ClassMocker and sets the methods provided to return the values provided
 
 #### Parameters
 |Param|Description|
 |---|---|
+|`classType`|the type of class to mock|
 |`methodMocks`|Map of method name strings to method mocks|
 
 #### Return
 
 **Type**
 
-ClassMocker
+Object
 
 **Description**
 
-ClassMocker with provided method mocks set
+Mocked Object
 
-### `createSObjectMocker(Schema.SObjectType sObjType)`
+### `createSObjectMocker(Schema.SObjectType sObjType, Type sObjClassType)`
 
 Creates an SObject mocker for the provided sobject type
 
@@ -60,6 +47,7 @@ Creates an SObject mocker for the provided sobject type
 |Param|Description|
 |---|---|
 |`sObjType`|the type of sobject the mocker should be able to mock|
+|`sObjClassType`|Apex type of the SObject class|
 
 #### Return
 
