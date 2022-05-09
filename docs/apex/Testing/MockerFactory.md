@@ -19,14 +19,13 @@ Factory classes for creating various mocking utilities
 **Group** Testing
 
 ## Methods
-### `mockClass(System.Type classType, Map<String,IMethodMock> methodMocks)`
+### `mockClass(Map<String,IMethodMock> methodMocks)`
 
 Creates a ClassMocker and sets the methods provided to return the values provided
 
 #### Parameters
 |Param|Description|
 |---|---|
-|`classType`|the type of class to mock|
 |`methodMocks`|Map of method name strings to method mocks|
 
 #### Return

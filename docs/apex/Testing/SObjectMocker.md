@@ -84,7 +84,7 @@ SObject
 
 **Description**
 
-Mocked SObject without an id
+Mocked SObject
 
 ### `generateMockSObject(Map<Schema.SObjectField,Object> fieldValues)`
 
@@ -103,7 +103,7 @@ SObject
 
 **Description**
 
-Mocked SObject without an id
+Mocked SObject
 
 ### `generateMockSObjects(Integer numOfRecords)`
 
@@ -122,7 +122,7 @@ List&lt;SObject&gt;
 
 **Description**
 
-Mocked SObject without an id
+Mocked SObject
 
 ### `generateMockSObjects(Map<Schema.SObjectField,Object> fieldValues, Integer numOfRecords)`
 
@@ -142,6 +142,6 @@ List&lt;SObject&gt;
 
 **Description**
 
-Mocked SObject without an id
+Mocked SObject
 
 ---

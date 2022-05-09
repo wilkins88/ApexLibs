@@ -19,20 +19,6 @@ Class mocker that can be used universally for black-box mocks
 **Group** Testing
 
 ## Methods
-### `construct()`
-
-builds the mock and returns it to be set for cliens
-
-#### Return
-
-**Type**
-
-Object
-
-**Description**
-
-Mocked Object
-
 ### `handleMethodCall(Object stubbedObject, String stubbedMethodName, Type returnType, List<Type> listOfParamTypes, List<String> listOfParamNames, List<Object> listOfArgs)`
 
 `SUPPRESSWARNINGS`

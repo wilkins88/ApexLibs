@@ -63,7 +63,7 @@ global inherited sharing class SObjectMocker {
   }
   /**
    * @description generates a mock SObject
-   * @return Mocked SObject without an id
+   * @return Mocked SObject
    */
   global SObject generateMockSObject() {
     return this.augmentSObject(
@@ -73,7 +73,7 @@ global inherited sharing class SObjectMocker {
   /**
    * @description generates a mock SObject
    * @param fieldValues Field Values to set in the mocked object
-   * @return Mocked SObject without an id
+   * @return Mocked SObject
    */
   global SObject generateMockSObject(
     Map<Schema.SObjectField, Object> fieldValues
@@ -85,7 +85,7 @@ global inherited sharing class SObjectMocker {
   /**
    * @description generates a list of mock SObjects
    * @param numOfRecords Number of mocked SObjects to generate
-   * @return Mocked SObject without an id
+   * @return Mocked SObject
    */
   global List<SObject> generateMockSObjects(Integer numOfRecords) {
     List<SObject> records = new List<SObject>();
@@ -100,7 +100,7 @@ global inherited sharing class SObjectMocker {
    * @description generates a mock SObject
    * @param fieldValues Field Values to set in the mocked object
    * @param numOfRecords Number of mocked SObjects to generate
-   * @return Mocked SObject without an id
+   * @return Mocked SObject
    */
   global List<SObject> generateMockSObjects(
     Map<Schema.SObjectField, Object> fieldValues,
@@ -140,7 +140,7 @@ global inherited sharing class SObjectMocker {
           }
         );
       }
-      return (SObjectTriggerSetting__mdt) JSON.deserialize(
+      return (SObject) JSON.deserialize(
         JSON.serialize(objMap),
         this.sObjClassType
       );
