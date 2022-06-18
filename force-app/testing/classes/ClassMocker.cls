@@ -17,21 +17,6 @@ global inherited sharing class ClassMocker implements System.StubProvider {
     set;
   }
   private IMethodMock defaultMethodMock;
-  private System.Type classType;
-  /**
-   * @description Constructor
-   * @param classType the type of class that this mocker is mocking
-   */
-  public ClassMocker(Type classType) {
-    this.classType = classType;
-  }
-  /**
-   * @description builds the mock and returns it to be set for cliens
-   * @return Mocked Object
-   */
-  global Object construct() {
-    return System.Test.createStub(this.classType, this);
-  }
   /**
    * @description Sets a mocked implementation to for a particular method
    * @param methodName Name of the method to mock

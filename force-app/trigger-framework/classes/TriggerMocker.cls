@@ -12,7 +12,7 @@ global inherited sharing class TriggerMocker {
    * @param triggerNew Trigger.new records to be set
    */
   public void setBeforeInsertMock(List<SObject> triggerNew) {
-    ClassMocker mocker = new ClassMocker(TriggerContext.class)
+    ClassMocker mocker = new ClassMocker()
       .setDefaultMethodMock(new ReturnValueMethodMock(false))
       .setMethodMock('isBeforeInsert', new ReturnValueMethodMock(true))
       .setMethodMock('getTriggerNew', new ReturnValueMethodMock(triggerNew))
@@ -31,7 +31,7 @@ global inherited sharing class TriggerMocker {
     List<SObject> triggerNew,
     List<SObject> triggerOld
   ) {
-    ClassMocker mocker = new ClassMocker(TriggerContext.class)
+    ClassMocker mocker = new ClassMocker()
       .setDefaultMethodMock(new ReturnValueMethodMock(false))
       .setMethodMock('isBeforeUpdate', new ReturnValueMethodMock(true))
       .setMethodMock('getTriggerNew', new ReturnValueMethodMock(triggerNew))
@@ -55,7 +55,7 @@ global inherited sharing class TriggerMocker {
    * @param triggerNew Trigger.old records to be set
    */
   public void setBeforeDeleteMock(List<SObject> triggerOld) {
-    ClassMocker mocker = new ClassMocker(TriggerContext.class)
+    ClassMocker mocker = new ClassMocker()
       .setDefaultMethodMock(new ReturnValueMethodMock(false))
       .setMethodMock('isBeforeDelete', new ReturnValueMethodMock(true))
       .setMethodMock('getTriggerOld', new ReturnValueMethodMock(triggerOld))
@@ -74,7 +74,7 @@ global inherited sharing class TriggerMocker {
    * @param triggerNew Trigger.new records to be set
    */
   public void setAfterInsertMock(List<SObject> triggerNew) {
-    ClassMocker mocker = new ClassMocker(TriggerContext.class)
+    ClassMocker mocker = new ClassMocker()
       .setDefaultMethodMock(new ReturnValueMethodMock(false))
       .setMethodMock('isAfterInsert', new ReturnValueMethodMock(true))
       .setMethodMock('getTriggerNew', new ReturnValueMethodMock(triggerNew))
@@ -93,7 +93,7 @@ global inherited sharing class TriggerMocker {
     List<SObject> triggerNew,
     List<SObject> triggerOld
   ) {
-    ClassMocker mocker = new ClassMocker(TriggerContext.class)
+    ClassMocker mocker = new ClassMocker()
       .setDefaultMethodMock(new ReturnValueMethodMock(false))
       .setMethodMock('isAfterUpdate', new ReturnValueMethodMock(true))
       .setMethodMock('getTriggerNew', new ReturnValueMethodMock(triggerNew))
@@ -117,7 +117,7 @@ global inherited sharing class TriggerMocker {
    * @param triggerNew Trigger.old records to be set
    */
   public void setAfterDeleteMock(List<SObject> triggerOld) {
-    ClassMocker mocker = new ClassMocker(TriggerContext.class)
+    ClassMocker mocker = new ClassMocker()
       .setDefaultMethodMock(new ReturnValueMethodMock(false))
       .setMethodMock('isAfterDelete', new ReturnValueMethodMock(true))
       .setMethodMock('getTriggerOld', new ReturnValueMethodMock(triggerOld))
@@ -136,7 +136,7 @@ global inherited sharing class TriggerMocker {
    * @param triggerNew Trigger.new records to be set
    */
   public void setAfterUndeleteMock(List<SObject> triggerNew) {
-    ClassMocker mocker = new ClassMocker(TriggerContext.class)
+    ClassMocker mocker = new ClassMocker()
       .setDefaultMethodMock(new ReturnValueMethodMock(false))
       .setMethodMock('isAfterUndelete', new ReturnValueMethodMock(true))
       .setMethodMock('getTriggerNew', new ReturnValueMethodMock(triggerNew))
