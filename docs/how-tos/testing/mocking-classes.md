@@ -9,7 +9,7 @@
 
 Provided as a part of this library is a mock that simply returns whatever value is provided to it. This is convenient in a variety of situations where we can treat a dependency as a black-box that just spits out a simple output (regardless of input, which we can control in tests anyways).
 
-To apply, simply inject a mapping to the ReturnValueMethodMock class with the return value injected into the ReturnValueMethodMock constructor. Consider the following classes
+To apply, simply inject a mapping to the ReturnValueMethodMock class with the return value injected into the ReturnValueMethodMock constructor. Consider the following classes:
 
 ### SampleClass.cls
 

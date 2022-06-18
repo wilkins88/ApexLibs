@@ -10,12 +10,28 @@ global inherited sharing class MockerFactory {
   /**
    * @description Creates a ClassMocker and sets the methods provided to return the values provided
    * @param methodMocks Map of method name strings to method mocks
-   * @return Mocked Object
+   * @return ClassMocker
    */
-  global ClassMocker mockClass(Map<String, IMethodMock> methodMocks) {
+  global ClassMocker createClassMocker(Map<String, IMethodMock> methodMocks) {
+    return this.createClassMocker(methodMocks, null);
+  }
+  /**
+   * @description Creates a ClassMocker and sets the methods provided to return the values provided
+   * @param methodMocks Map of method name strings to method mocks
+   * @return ClassMocker
+   */
+  global ClassMocker createClassMocker(
+    Map<String, IMethodMock> methodMocks,
+    IMethodMock defaultMethodMock
+  ) {
     ClassMocker mocker = new ClassMocker();
-    for (String methodName : methodMocks.keySet()) {
-      mocker.setMethodMock(methodName, methodMocks.get(methodName));
+    if (methodMocks != null) {
+      for (String methodName : methodMocks.keySet()) {
+        mocker.setMethodMock(methodName, methodMocks.get(methodName));
+      }
+    }
+    if (defaultMethodMock != null) {
+      mocker.setDefaultMethodMock(defaultMethodMock);
     }
     return mocker;
   }
