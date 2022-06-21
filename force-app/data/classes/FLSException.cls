@@ -6,7 +6,7 @@
 @SuppressWarnings('PMD.AvoidGlobalModifier')
 global inherited sharing class FLSException extends Exception {
   @TestVisible
-  private static final String INUSFFICIENT_ACCESS_MESSAGE = 'Insufficient {0} access to violations {1}';
+  private static final String INUSFFICIENT_ACCESS_MESSAGE = 'Insufficient {0} access to: {1}';
   @TestVisible
   private DataStringAdapter stringAdapter {
     get {
@@ -34,7 +34,7 @@ global inherited sharing class FLSException extends Exception {
    * @param access Access Type that was used to determine FLS violation
    * @param violations Fields or Objects that failed the FLS check
    */
-  public FLSException(System.AccessType access, List<String> violations) {
+  global FLSException(System.AccessType access, List<String> violations) {
     this.operationType = this.stringAdapter.fromAccessType(access);
     this.violations = violations;
   }
@@ -43,7 +43,7 @@ global inherited sharing class FLSException extends Exception {
    * @param operation Database operation that was used to determine FLS violation
    * @param violations Fields of Objects that failed the FLS check
    */
-  public FLSException(DatabaseOperation operation, List<String> violations) {
+  global FLSException(DatabaseOperation operation, List<String> violations) {
     this.operationType = this.stringAdapter.fromDatabaseOperation(operation);
     this.violations = violations;
   }
@@ -52,7 +52,7 @@ global inherited sharing class FLSException extends Exception {
    * @see [Custom Exceptions](https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_exception_custom.htm)
    * @return Custom error message
    */
-  public override String getMessage() {
+  global override String getMessage() {
     return String.format(
       INUSFFICIENT_ACCESS_MESSAGE,
       new List<String>{ operationType, String.join(this.violations, ',') }

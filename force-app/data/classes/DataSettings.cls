@@ -32,7 +32,7 @@ global inherited sharing class DataSettings {
    * @description Returns whether or not FLS should be enforced
    * @return True if FLS should be enforced, false otherwise
    */
-  public Boolean shouldEnforceFLS() {
+  global Boolean shouldEnforceFLS() {
     return this.enforceFLS;
   }
   /**
@@ -40,32 +40,32 @@ global inherited sharing class DataSettings {
    * when FLS is enforced
    * @return True if field stripping is allowed, false otherwise
    */
-  public Boolean shouldAllowFieldStripping() {
+  global Boolean shouldAllowFieldStripping() {
     return this.enforceFLS && this.allowFieldStripping;
   }
   /**
    * @description Enables field Stripping. Also enables enforcement of FLS
    */
-  public void enableFieldStripping() {
+  global void enableFieldStripping() {
     this.allowFieldStripping = true;
     this.enforceFLS = true;
   }
   /**
    * @description Enables field Stripping. Does not disable enforcement of FLS
    */
-  public void disableFieldStripping() {
+  global void disableFieldStripping() {
     this.allowFieldStripping = false;
   }
   /**
    * @description Enables general enforcement of FLS.
    */
-  public void enableFLS() {
+  global void enableFLS() {
     this.enforceFLS = true;
   }
   /**
    * @description Disables general enforcement of FLS.
    */
-  public void disableFLS() {
+  global void disableFLS() {
     this.enforceFLS = false;
   }
 }

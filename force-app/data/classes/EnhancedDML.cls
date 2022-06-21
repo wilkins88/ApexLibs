@@ -192,6 +192,37 @@ global inherited sharing class EnhancedDML {
     );
   }
   /**
+   * @description Undeletes a single record
+   * @param recordIds Id of the record to undelete
+   * @return Save results from the undelete operation
+   */
+  global Database.UndeleteResult undeleteRecord(Id recordId) {
+    return this.undeleteRecords(new List<Id>{ recordId })[0];
+  }
+  /**
+   * @description Undeletes a collection of records
+   * @param recordIds Ids of the records to undelete
+   * @return Save results from the undelete operation
+   */
+  global List<Database.UndeleteResult> undeleteRecords(List<Id> recordIds) {
+    return this.undeleteRecords(recordIds, true);
+  }
+  /**
+   * @description Undeletes a collection of records
+   * @param recordIds Ids of the records to undelete
+   * @param allOrNone Whether partial DB writes should be allowed
+   * @return Save results from the undelete operation
+   */
+  global List<Database.UndeleteResult> undeleteRecords(
+    List<Id> recordIds,
+    Boolean allOrNone
+  ) {
+    return Database.undelete(
+      this.enforceFLS(recordIds, DatabaseOperation.DML_UNDELETE),
+      allOrNone
+    );
+  }
+  /**
    * @description Helper that enforces FLS on records based on
    * data settings. Used for most operations.
    * @param records Records to check permissions on
@@ -217,13 +248,13 @@ global inherited sharing class EnhancedDML {
       !data.settings.shouldAllowFieldStripping() &&
       !decision.getRemovedFields().isEmpty()
     ) {
-      List<String> removedFields = new List<String>();
+      Set<String> removedFields = new Set<String>();
       for (String sObj : decision.getRemovedFields().keySet()) {
         for (String field : decision.getRemovedFields().get(sObj)) {
           removedFields.add(sObj + '.' + field);
         }
       }
-      throw new FLSException(accessCheckType, removedFields);
+      throw new FLSException(accessCheckType, new List<String>(removedFields));
     }
     // either we allow stripped fields or none were stripped
     return decision.getRecords();
