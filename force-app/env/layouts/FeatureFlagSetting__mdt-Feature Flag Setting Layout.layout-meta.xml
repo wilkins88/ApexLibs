@@ -16,7 +16,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>
-                <field>ClassName_c__c</field>
+                <field>ClassName__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
