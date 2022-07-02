@@ -2,7 +2,7 @@
 
 ## References
 
-- [SObjectMocker](../apex/Testing/SObjectMocker.md)
+- [SObjectMocker](../../apex/Testing/SObjectMocker.md)
 
 ## Creating an SObjectMocker Instance
 

@@ -2,10 +2,10 @@
 
 ## References
 
-- [TriggerDispatcherFactory](../apex/Triggers/TriggerDispatcherFactory.md)
-- [TriggerContext](../apex/Triggers/TriggerContext.md)
-- [TriggerDispatcher](../apex/Triggers/TriggerDispatcher.md)
-- [TriggerHandler](../apex/Triggers/TriggerHandler.md)
+- [TriggerDispatcherFactory](../../apex/Triggers/TriggerDispatcherFactory.md)
+- [TriggerContext](../../apex/Triggers/TriggerContext.md)
+- [TriggerDispatcher](../../apex/Triggers/TriggerDispatcher.md)
+- [TriggerHandler](../../apex/Triggers/TriggerHandler.md)
 - [Salesforce Trigger Documentation](https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_triggers.htm)
 
 ## Defining a Trigger for an SObject

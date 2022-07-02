@@ -2,7 +2,7 @@
 
 ## References
 
-- [ClassMocker](../apex/Testing/ClassMocker.md)
+- [ClassMocker](../../apex/Testing/ClassMocker.md)
 - [Salesforce Stub API](https://developer.salesforce.com/docs/atlas.en-us.apexref.meta/apexref/apex_interface_System_StubProvider.htm)
 
 ## Simple Value Return Mocks

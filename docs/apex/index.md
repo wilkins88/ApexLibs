@@ -72,3 +72,41 @@ Static accessor class used to group and provide convenient static access to test
 ### [ThrowExceptionMethodMock](/Testing/ThrowExceptionMethodMock.md)
 
 Simple method mock that throws whatever excpetion is injected into the constructor
+## Data
+
+### [Data](/Data/Data.md)
+
+Static accessor class for data and database related functionality
+
+### [DataSettings](/Data/DataSettings.md)
+
+Settings class that can be manipulated to afford various behaviors when executing dml or running queries
+
+### [DatabaseOperation](/Data/DatabaseOperation.md)
+
+ENUM for capturing database operations decouled from any specific Apex system libs
+
+### [EnhancedDML](/Data/EnhancedDML.md)
+
+DML interface to be used as a replacement for standard DML. Supports flexible (and default) enforcement of FLS on operations, as well as supports mocking to remove automation dependencies from Unit tests that require database operations
+
+### [FLSException](/Data/FLSException.md)
+
+
+## Env
+
+### [Environment](/Env/Environment.md)
+
+Static accessor class for working with environment related utils and services
+
+### [FeatureFlag](/Env/FeatureFlag.md)
+
+Primary interface for working with feature flags
+
+### [FeatureFlagResolver](/Env/FeatureFlagResolver.md)
+
+Base class for feature flag resolvers to implement
+
+### [SimpleFeatureResolver](/Env/SimpleFeatureResolver.md)
+
+Resolver for simple feature flags (Global on/off)
