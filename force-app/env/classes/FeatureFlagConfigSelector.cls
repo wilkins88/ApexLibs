@@ -9,13 +9,22 @@ public inherited sharing class FeatureFlagConfigSelector {
    * @param featureDevName Developer name of the feature flag config record
    * @return Record if it exists, null otherwise
    */
-  @SuppressWarnings('PMD.ApexCRUDViolation')
   public FeatureFlagSetting__mdt getFeatureConfig(String featureDevName) {
-    List<FeatureFlagSetting__mdt> flag = [
-      SELECT DeveloperName, ClassName__c
-      FROM FeatureFlagSetting__mdt
-      WHERE DeveloperName = :featureDevName
-    ];
+    SObjectInspector inspector = Data.metadata.createSObjectInspector(
+      FeatureFlagSetting__mdt.getSobjectType()
+    );
+    List<String> fields = new List<String>();
+    for (Schema.SObjectField field : inspector.getAllFields()) {
+      fields.add(String.valueOf(field));
+    }
+    String query =
+      'SELECT ' +
+      String.join(fields, ',') +
+      ' FROM FeatureFlagSetting__mdt ' +
+      ' WHERE DeveloperName = :featureDevName';
+    List<FeatureFlagSetting__mdt> flag = (List<FeatureFlagSetting__mdt>) Database.query(
+      String.escapeSingleQuotes(query)
+    );
     return flag.isEmpty() ? null : flag[0];
   }
 }

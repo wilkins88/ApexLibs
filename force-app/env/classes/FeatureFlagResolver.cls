@@ -17,7 +17,14 @@ global inherited sharing abstract class FeatureFlagResolver {
    * @description Sets the feature config
    * @param config Feature flag setting to use when resolving
    */
-  global void setFeatureConfig(FeatureFlagSetting__mdt config) {
+  public void setFeatureConfig(FeatureFlagSetting__mdt config) {
     this.config = config;
+  }
+  /**
+   * @description Getter for the configuration stored in the resolver
+   * @return Resolver config
+   */
+  global FeatureFlagSetting__mdt getConfig() {
+    return this.config;
   }
 }

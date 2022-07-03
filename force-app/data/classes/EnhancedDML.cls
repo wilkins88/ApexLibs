@@ -12,7 +12,7 @@ global inherited sharing class EnhancedDML {
    * @param record Record to insert
    * @return Save results from the insert operation
    */
-  public Database.SaveResult insertRecord(SObject record) {
+  global Database.SaveResult insertRecord(SObject record) {
     return this.insertRecords(new List<SObject>{ record })[0];
   }
   /**
@@ -57,7 +57,7 @@ global inherited sharing class EnhancedDML {
    * @param record Record to update
    * @return Save results from the update operation
    */
-  public Database.SaveResult updateRecord(SObject record) {
+  global Database.SaveResult updateRecord(SObject record) {
     return this.updateRecords(new List<SObject>{ record })[0];
   }
   /**

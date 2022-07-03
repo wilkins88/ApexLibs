@@ -4,8 +4,8 @@
       "path": "force-app",
       "default": true,
       "package": "ApexLibs",
-      "versionName": "ver 1.1",
-      "versionNumber": "1.1.0.NEXT"
+      "versionName": "ver 1.2",
+      "versionNumber": "1.2.0.NEXT"
     }
   ],
   "name": "ApexLibs",
@@ -18,6 +18,12 @@
     "ApexLibs@1.0.0-2": "04t8b000001RRvjAAG",
     "ApexLibs@1.0.0-3": "04t8b000001RT0bAAG",
     "ApexLibs@1.0.0-4": "04t8b000001RvRfAAK",
-    "ApexLibs@1.0.0-5": "04t8b000001F9NBAA0"
+    "ApexLibs@1.0.0-5": "04t8b000001F9NBAA0",
+    "ApexLibs@1.1.0-1": "04t8b000001F9SgAAK",
+    "ApexLibs@1.1.0-2": "04t8b000001F9SlAAK",
+    "ApexLibs@1.1.0-3": "04t8b000001F9SqAAK",
+    "ApexLibs@1.1.0-4": "04t8b000001F9SvAAK",
+    "ApexLibs@1.1.0-5": "04t8b000001F9T0AAK",
+    "ApexLibs@1.1.0-6": "04t8b000001F9T5AAK"
   }
 }
