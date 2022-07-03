@@ -20,6 +20,7 @@ public inherited sharing class TriggerConfigSelector {
         )
       FROM SObjectTriggerSetting__mdt
       WHERE SObjectType__c = :String.valueOf(sObjType) AND IsActive__c = TRUE
+      ORDER BY Priority__c ASC NULLS LAST
     ];
   }
 }
