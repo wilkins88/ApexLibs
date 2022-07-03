@@ -14,6 +14,25 @@ DML interface to be used as a replacement for standard DML. Supports flexible (a
 **Group** Data
 
 ## Methods
+### `insertRecord(SObject record)`
+
+Inserts a single record
+
+#### Parameters
+|Param|Description|
+|---|---|
+|`record`|Record to insert|
+
+#### Return
+
+**Type**
+
+Database.SaveResult
+
+**Description**
+
+Save results from the insert operation
+
 ### `insertRecord(SObject record, Database.DMLOptions options)`
 
 Inserts a single record with DML options
@@ -72,6 +91,25 @@ List&lt;Database.SaveResult&gt;
 **Description**
 
 Save results from the insert operation
+
+### `updateRecord(SObject record)`
+
+Updates a single record
+
+#### Parameters
+|Param|Description|
+|---|---|
+|`record`|Record to update|
+
+#### Return
+
+**Type**
+
+Database.SaveResult
+
+**Description**
+
+Save results from the update operation
 
 ### `updateRecord(SObject record, Database.DMLOptions options)`
 

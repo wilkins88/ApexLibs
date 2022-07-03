@@ -28,13 +28,18 @@ Boolean
 
 True if feature is on, false otherwise
 
-### `setFeatureConfig(FeatureFlagSetting__mdt config)`
+### `getConfig()`
 
-Sets the feature config
+Getter for the configuration stored in the resolver
 
-#### Parameters
-|Param|Description|
-|---|---|
-|`config`|Feature flag setting to use when resolving|
+#### Return
+
+**Type**
+
+FeatureFlagSetting__mdt
+
+**Description**
+
+Resolver config
 
 ---

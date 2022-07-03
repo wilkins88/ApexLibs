@@ -25,4 +25,14 @@ global inherited sharing class Data {
     }
     private set;
   }
+  @TestVisible
+  global static DataMetadataFactory metadata {
+    get {
+      if (metadata == null) {
+        metadata = new DataMetadataFactory();
+      }
+      return metadata;
+    }
+    set;
+  }
 }

@@ -7,7 +7,7 @@
     <fieldManageability>DeveloperControlled</fieldManageability>
     <inlineHelpText
   >The name of the feature flag resolver class that should be used.</inlineHelpText>
-    <label>ClassName__c</label>
+    <label>Class Name</label>
     <length>60</length>
     <required>true</required>
     <type>Text</type>

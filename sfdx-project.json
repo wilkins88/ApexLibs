@@ -1,25 +1,29 @@
 {
-    "packageDirectories": [
-        {
-            "path": "force-app",
-            "default": true,
-            "package": "ApexLibs",
-            "versionName": "ver 1.1",
-            "versionNumber": "1.1.0.NEXT"
-        }
-    ],
-    "name": "ApexLibs",
-    "namespace": "Libs",
-    "sfdcLoginUrl": "https://login.salesforce.com",
-    "sourceApiVersion": "54.0",
-    "packageAliases": {
-        "ApexLibs": "0Ho8b000000sXtWCAU",
-        "ApexLibs@1.0.0-1": "04t8b000001RRrWAAW",
-        "ApexLibs@1.0.0-2": "04t8b000001RRvjAAG",
-        "ApexLibs@1.0.0-3": "04t8b000001RT0bAAG",
-        "ApexLibs@1.0.0-4": "04t8b000001RvRfAAK",
-        "ApexLibs@1.0.0-5": "04t8b000001F9NBAA0",
-        "ApexLibs@1.1.0-1": "04t8b000001F9SgAAK",
-        "ApexLibs@1.1.0-2": "04t8b000001F9SlAAK"
+  "packageDirectories": [
+    {
+      "path": "force-app",
+      "default": true,
+      "package": "ApexLibs",
+      "versionName": "ver 1.2",
+      "versionNumber": "1.2.0.NEXT"
     }
+  ],
+  "name": "ApexLibs",
+  "namespace": "Libs",
+  "sfdcLoginUrl": "https://login.salesforce.com",
+  "sourceApiVersion": "54.0",
+  "packageAliases": {
+    "ApexLibs": "0Ho8b000000sXtWCAU",
+    "ApexLibs@1.0.0-1": "04t8b000001RRrWAAW",
+    "ApexLibs@1.0.0-2": "04t8b000001RRvjAAG",
+    "ApexLibs@1.0.0-3": "04t8b000001RT0bAAG",
+    "ApexLibs@1.0.0-4": "04t8b000001RvRfAAK",
+    "ApexLibs@1.0.0-5": "04t8b000001F9NBAA0",
+    "ApexLibs@1.1.0-1": "04t8b000001F9SgAAK",
+    "ApexLibs@1.1.0-2": "04t8b000001F9SlAAK",
+    "ApexLibs@1.1.0-3": "04t8b000001F9SqAAK",
+    "ApexLibs@1.1.0-4": "04t8b000001F9SvAAK",
+    "ApexLibs@1.1.0-5": "04t8b000001F9T0AAK",
+    "ApexLibs@1.1.0-6": "04t8b000001F9T5AAK"
+  }
 }

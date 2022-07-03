@@ -19,6 +19,10 @@ Static accessor class for data and database related functionality
 
 `TESTVISIBLE` 
 
+### `metadata` → `DataMetadataFactory`
+
+`TESTVISIBLE` 
+
 ### `settings` → `DataSettings`
 
 `TESTVISIBLE` 

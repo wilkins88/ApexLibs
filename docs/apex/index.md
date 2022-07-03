@@ -78,6 +78,10 @@ Simple method mock that throws whatever excpetion is injected into the construct
 
 Static accessor class for data and database related functionality
 
+### [DataMetadataFactory](/Data/DataMetadataFactory.md)
+
+Factory for producuing classes relevant to metadata surrounding database operations
+
 ### [DataSettings](/Data/DataSettings.md)
 
 Settings class that can be manipulated to afford various behaviors when executing dml or running queries
@@ -93,6 +97,10 @@ DML interface to be used as a replacement for standard DML. Supports flexible (a
 ### [FLSException](/Data/FLSException.md)
 
 
+
+### [SObjectInspector](/Data/SObjectInspector.md)
+
+Class that wraps around various SObject inspection functionality (such as retrieving fields)
 ## Env
 
 ### [Environment](/Env/Environment.md)

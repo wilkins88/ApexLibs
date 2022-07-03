@@ -16,4 +16,4 @@
 
 ## Environment
 
-### [Creating and Using Feature Flags](env/feature-flags.md)
+### [Creating and Using Simple Feature Flags](env/simple-feature-flags.md)
