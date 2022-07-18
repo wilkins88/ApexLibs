@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RBACCategoryValue__c</fullName>
+    <description>The value used to match if using RBAC Category and the RBACFeatureResolver. Can be a comma-delimited string of appropriate values. If values exceeds 255 characters, consider a different mechanism for giving access to a feature, such as using a single custom permission.</description>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <inlineHelpText>The value used to match if using RBAC Category and the RBACFeatureResolver. Can be a comma-delimited string of appropriate values. If values exceeds 255 characters, consider a different mechanism for giving access to a feature, such as using a single custom permission.</inlineHelpText>
+    <label>RBAC Category Value</label>
+    <required>false</required>
+    <type>TextArea</type>
+</CustomField>
