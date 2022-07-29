@@ -18,12 +18,13 @@ global inherited sharing class SimpleCondition implements ISoqlCondition {
     set;
   }
   @TestVisible
+  private String prefix;
+  @TestVisible
   private Schema.SObjectField field;
   @TestVisible
   private SoqlComparisonOperator operator;
   @TestVisible
   private Object value;
-
   /**
    * @description Constructor
    * @param field Field to filter on e.g. Account.Name
@@ -39,7 +40,15 @@ global inherited sharing class SimpleCondition implements ISoqlCondition {
     this.operator = operator;
     this.value = value;
   }
-
+  /**
+   * @description Prefix setter
+   * @param prefix Prefix to be prepended to the field, usually a relation name e.g. MyCustomRelation__r
+   * @return Invoking object
+   */
+  public SimpleCondition setPrefix(String prefix) {
+    this.prefix = prefix;
+    return this;
+  }
   /**
    * @description Returns a simple, single-value soql where clause
    * @see [ISoqlCondition](/docs/Data/ISoqlCondition.md)
@@ -49,7 +58,9 @@ global inherited sharing class SimpleCondition implements ISoqlCondition {
     return String.format(
       CONDITION_STRING,
       new List<String>{
-        String.valueOf(field),
+        String.isBlank(this.prefix)
+          ? String.valueOf(this.field)
+          : this.prefix + '.' + String.valueOf(this.field),
         this.stringAdapter.fromComparisonOperator(this.operator),
         this.stringAdapter.fromObject(this.value)
       }

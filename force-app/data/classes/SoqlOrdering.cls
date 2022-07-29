@@ -34,56 +34,40 @@ global inherited sharing class SoqlOrdering {
    * @param field The field to order on
    */
   public SoqlOrdering(Schema.SObjectField field) {
-    this('', field);
-  }
-  /**
-   * @description Constrcutor
-   * @param prefix Prefix to attach to the field in the order by clause
-   * primarily used for relationships e.g. MyRelationship__r
-   * @param field The field to order on
-   */
-  public SoqlOrdering(String prefix, Schema.SObjectField field) {
-    this.prefix = prefix;
     this.field = field;
   }
   /**
-   * @description Constrcutor
-   * @param field The field to order on
-   * @param ascending True for asc, false for desc
-   * @param nullsFirst True for nulls first, false for nulls last
+   * @description Prefix setter
+   * @param prefix Prefix to be prepended to the field, usually a relation name e.g. MyCustomRelation__r
+   * @return Invoking object
    */
-  public SoqlOrdering(
-    Schema.SObjectField field,
-    Boolean ascending,
-    Boolean nullsFirst
-  ) {
-    this('', field, ascending, nullsFirst);
+  public SoqlOrdering setPrefix(String prefix) {
+    this.prefix = prefix;
+    return this;
   }
   /**
-   * @description Constrcutor
-   * @param prefix Prefix to attach to the field in the order by clause
-   * primarily used for relationships e.g. MyRelationship__r
-   * @param field The field to order on
-   * @param ascending True for asc, false for desc
-   * @param nullsFirst True for nulls first, false for nulls last
+   * @description Asc/Desc  setter
+   * @param ascending True if ascending, false if descending
+   * @return Invoking object
    */
-  @SuppressWarnings('PMD.ExcessiveParameterlist')
-  public SoqlOrdering(
-    String prefix,
-    Schema.SObjectField field,
-    Boolean ascending,
-    Boolean nullsFirst
-  ) {
-    this.prefix = prefix;
-    this.field = field;
+  public SoqlOrdering setAscending(Boolean ascending) {
     this.ascending = ascending;
+    return this;
+  }
+  /**
+   * @description Nulls ordering setter
+   * @param nullsFirst True if nulls first, false if nulls after
+   * @return Invoking object
+   */
+  public SoqlOrdering setNullsFirst(Boolean nullsFirst) {
     this.nullsFirst = nullsFirst;
+    return this;
   }
   /**
    * @description Returns the SOQL ORDER BY clause string
    * @return SOQL String representing ordering
    */
-  public String toSoql() {
+  global String toSoql() {
     String soql = String.isBlank(this.prefix)
       ? String.valueOf(this.field)
       : this.prefix + '.' + String.valueOf(this.field);
