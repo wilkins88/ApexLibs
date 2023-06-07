@@ -33,6 +33,16 @@ global inherited sharing class Data {
       }
       return metadata;
     }
-    set;
+    private set;
+  }
+  @TestVisible
+  global static QueryFactory queries {
+    get {
+      if (queries == null) {
+        queries = new QueryFactory();
+      }
+      return queries;
+    }
+    private set;
   }
 }
